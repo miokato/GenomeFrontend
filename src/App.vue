@@ -1,24 +1,45 @@
 <template>
   <div id="app">
-    <div class="container">
-      <!-- search bar -->
-      <div class="field has-addons is-clearfix">
-        <div class="control">
-          <input @keyup.enter="search" v-model="query"
-                 class="input" type="text" placeholder="Search">
-        </div>
-        <div class="control">
-          <a @click="search" class="button is-info">
-            Search
-          </a>
+
+    <!-- title -->
+    <section class="hero is-warning">
+      <div id="title" class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            GenoGuru
+          </h1>
+          <h2 class="subtitle">
+            Food recommendation system by Genome map
+          </h2>
         </div>
       </div>
+    </section>
 
-      <!-- table -->
+
+    <!-- search bar -->
+    <section class="search-bar">
+      <div class="container">
+        <div class="field has-addons">
+          <div class="control">
+            <input @keyup.enter="search" v-model="query"
+                   class="input" type="text" placeholder="Search">
+          </div>
+          <div class="control">
+            <a @click="search" class="button is-warning">
+              Search
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- table -->
+    <section>
       <b-table :data="data" :columns="columns"></b-table>
-    </div>
-  </div>
+    </section>
 
+  </div>
 </template>
 
 <script>
@@ -72,7 +93,8 @@
 </script>
 
 <style>
-  #app {
+  .search-bar {
     margin-top: 60px;
+    margin-bottom: 30px;
   }
 </style>
