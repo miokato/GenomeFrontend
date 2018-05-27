@@ -88,22 +88,22 @@
           <div class="card">
             <div class="card-content">
               <p class="title is-4">同じ味覚の人から探す</p>
-              <p class="subtitle is-6">味覚検索</p>
+              <p class="subtitle is-6">味覚が合う人</p>
               <div class="content">
-                ゲノムマップを利用して同じ味覚の人から検索します。
+                ゲノムマップを利用して同じ味覚の人がオススメしているお店を表示します
                 <br>
               </div>
-              <a class="button is-warning">味覚検索</a>
+              <a class="button is-warning">味覚が合う人</a>
             </div>
           </div>
           <div class="card">
             <div class="card-content">
               <p class="title is-4">同じ嗅覚の人から探す</p>
-              <p class="subtitle is-6">嗅覚検索</p>
+              <p class="subtitle is-6">嗅覚が合う人</p>
               <div class="content">
-                ゲノムマップを利用して同じ嗅覚の人から検索します。
+                ゲノムマップを利用して同じ嗅覚の人がオススメしているお店を表示します
                 <br>
-                <a class="button is-warning">嗅覚検索</a>
+                <a class="button is-warning">嗅覚が合う人</a>
               </div>
             </div>
           </div>
