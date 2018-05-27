@@ -38,7 +38,26 @@
     <!-- table -->
     <section id="table">
       <div class="container">
-        <b-table :data="data" :columns="columns"></b-table>
+        <b-table :data="data" :columns="columns">
+
+          <template slot-scope="props">
+
+            <b-table-column width="40">
+              <img v-bind:src="props.row.image" alt="">
+            </b-table-column>
+            <b-table-column width="40">
+              <span class="bigStr">{{ props.row.storeName }}</span>
+            </b-table-column>
+            <b-table-column width="40">
+              <span class="bigNum">{{ props.row.avg }}</span>
+            </b-table-column>
+            <b-table-column width="40">
+              <span class="bigNum">{{ props.row.genomeAvg }}</span>
+            </b-table-column>
+
+          </template>
+
+        </b-table>
       </div>
     </section>
 
@@ -67,28 +86,47 @@
     data() {
       return {
         query: '',
-        data: [],
+        data: [
+          {
+            'storeName': '泰明軒',
+            'avg': 3,
+            'genomeAvg': 4,
+            'image': 'https://tblg.k-img.com/restaurant/images/Rvw/82109/150x150_square_82109277.jpg'
+          },
+        ],
         columns: [
           {
-            field: 'pref',
+            field: 'image',
+            label: '写真'
+          },
+          {
+            field: 'storeName',
             label: '店名',
           },
           {
+            field: 'avg',
+            label: '平均',
+          },
+          {
+            field: 'genomeAvg',
+            label: 'ゲノム平均',
+          },
+          {
             field: 'address',
-            label: '食品名',
-          },
-          {
-            field: 'city',
-            label: '市',
-          },
-          {
-            field: 'town',
-            label: '町名'
-          },
-          {
-            field: 'fullAddress',
             label: '住所'
-          }
+          },
+          {
+            field: 'tel',
+            label: '電話'
+          },
+          {
+            field: 'catchCopy',
+            label: 'キャッチコピー'
+          },
+          {
+            field: 'price',
+            label: '料金'
+          },
         ],
         zipcode: '248-0011',
       }
@@ -110,12 +148,18 @@
 </script>
 
 <style>
+  .bigNum {
+    font-size: 1em;
+  }
+  .bigStr {
+    font-size: 1em;
+  }
   .search-bar {
     margin-top: 60px;
     margin-bottom: 30px;
   }
 
   #table {
-    margin-bottom: 300px;
+    margin-bottom: 100px;
   }
 </style>
