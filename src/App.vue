@@ -45,7 +45,7 @@
 
                 <!-- top -->
                 <div class="columns">
-                  <div class="column is-two-thirds">
+                  <div class="column is-two-fifths">
                     <div class="media">
                       <div class="media-left">
                         <figure class="image is-128x128">
@@ -61,7 +61,9 @@
                     </div>
 
                   </div>
-                  <div class="column">
+                  <div class="column ">
+                    点数 : <star-rating star-size="30" rating="3"></star-rating>
+                    ゲノム点数 : <star-rating star-size="30" rating="2"></star-rating>
                   </div>
                 </div>
 
@@ -127,8 +129,12 @@
 
 <script>
   import axios from 'axios'
+  import StarRating from 'vue-star-rating'
 
   export default {
+    components: {
+      StarRating
+    },
     name: 'app',
     data() {
       return {
@@ -139,7 +145,7 @@
             'message': '地下の完全プライベート空間でパーティー可能★8名様から貸切OK！女子会・歓送迎会に…♪',
             'address': '[東京] 新富町駅 281m / ダイニングバー、居酒屋、ワインバー',
             'price': '¥4000 ~ ¥8000',
-            'avg': 3,
+            'rating': 3,
             'genomeAvg': 4,
             'image': 'https://tblg.k-img.com/restaurant/images/Rvw/82109/150x150_square_82109277.jpg'
           },
@@ -156,6 +162,9 @@
       }
     },
     methods: {
+      setRating: function(rating) {
+        this.rating = rating;
+      },
       search: function () {
         axios.get(`https://api.zipaddress.net/?zipcode=${this.query}`)
           .then(response => {
