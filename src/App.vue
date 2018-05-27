@@ -3,14 +3,25 @@
 
     <!-- title -->
     <section class="hero is-warning">
-      <div id="title" class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Genoguru
-          </h1>
-          <h2 class="subtitle">
-            好みが合う人がオススメする美味しいお店
-          </h2>
+      <div class="hero-head">
+        <div class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <div class="navbar-item">
+                <img src="./assets/logo1.png">
+              </div>
+            </div>
+            <div id="title" class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  Genoguru
+                </h1>
+                <h2 class="subtitle">
+                  好みが合う人がオススメする美味しいお店
+                </h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -159,6 +170,9 @@
 </script>
 
 <style>
+  .navbar-item img {
+    max-height: 7em;
+  }
   .bigNum {
     font-size: 1em;
   }
