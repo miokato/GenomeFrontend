@@ -71,17 +71,14 @@
 
                   </div>
                   <div class="column ">
-                    平均点 : <star-rating star-size="30" v-bind:increment="0.1" v-bind:rating=store.ave_point></star-rating>
                     ゲノグルスコア : <star-rating star-size="30" v-bind:increment="0.1" v-bind:rating=store.genome_point></star-rating>
+                    平均点 : <star-rating star-size="30" active-color="#727272" v-bind:increment="0.1" v-bind:rating=store.ave_point></star-rating>
                   </div>
                 </div>
 
                 <!-- bottom -->
                 <div class="content">
                   {{ store.pr }}
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                 </div>
               </div>
             </div>
@@ -90,27 +87,23 @@
         <div class="column">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">エリアから探す</p>
-              <p class="subtitle is-6">地図を検索</p>
+              <p class="title is-4">同じ味覚の人から探す</p>
+              <p class="subtitle is-6">味覚検索</p>
               <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                ゲノムマップを利用して同じ味覚の人から検索します。
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
               </div>
+              <a class="button is-warning">味覚検索</a>
             </div>
           </div>
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">ジャンルから探す</p>
-              <p class="subtitle is-6">ジャンルを指定</p>
+              <p class="title is-4">同じ嗅覚の人から探す</p>
+              <p class="subtitle is-6">嗅覚検索</p>
               <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                ゲノムマップを利用して同じ嗅覚の人から検索します。
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <a class="button is-warning">嗅覚検索</a>
               </div>
             </div>
           </div>
@@ -170,6 +163,12 @@
 </script>
 
 <style>
+  .hero.is-warning .title {
+    color: #727272
+  }
+  .hero.is-warning .subtitle {
+    color: #727272
+  }
   .navbar-item img {
     max-height: 7em;
   }
