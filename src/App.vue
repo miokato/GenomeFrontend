@@ -45,31 +45,29 @@
 
                 <!-- top -->
                 <div class="columns">
-                  <div class="column is-two-fifths">
+                  <div class="column is-two-thirds">
                     <div class="media">
                       <div class="media-left">
                         <figure class="image is-128x128">
-                          <img v-bind:src="store.image" alt="Placeholder image">
+                          <img v-bind:src="store.image_url" alt="Placeholder image">
                         </figure>
                       </div>
                       <div class="media-content">
-                        <p class="title is-4">{{ store.storeName }}</p>
-                        <p class="is-6">点数 : {{ store.avg }}</p>
-                        <p class="is-6">ゲノム点数 : {{ store.genomeAvg }}</p>
-                        <p>金額 : {{ store.price }}</p>
+                        <p class="title is-4">{{ store.shop_name }}</p>
+                        <p>平均金額 : ¥{{ store.cost }}</p>
                       </div>
                     </div>
 
                   </div>
                   <div class="column ">
-                    点数 : <star-rating star-size="30" rating="3"></star-rating>
-                    ゲノム点数 : <star-rating star-size="30" rating="2"></star-rating>
+                    平均点 : <star-rating star-size="30" v-bind:increment="0.1" v-bind:rating=store.ave_point></star-rating>
+                    ゲノグルスコア : <star-rating star-size="30" v-bind:increment="0.1" v-bind:rating=store.genome_point></star-rating>
                   </div>
                 </div>
 
                 <!-- bottom -->
                 <div class="content">
-                  {{ store.message }}
+                  {{ store.pr }}
                   <a href="#">#css</a> <a href="#">#responsive</a>
                   <br>
                   <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
@@ -140,39 +138,19 @@
       return {
         query: '',
         data: [
-          {
-            'storeName': 'ウイウイ',
-            'message': '地下の完全プライベート空間でパーティー可能★8名様から貸切OK！女子会・歓送迎会に…♪',
-            'address': '[東京] 新富町駅 281m / ダイニングバー、居酒屋、ワインバー',
-            'price': '¥4000 ~ ¥8000',
-            'rating': 3,
-            'genomeAvg': 4,
-            'image': 'https://tblg.k-img.com/restaurant/images/Rvw/82109/150x150_square_82109277.jpg'
-          },
-          {
-            'storeName': 'まるごと北海道 浅草店',
-            'message': 'チャーハンが最高',
-            'address': '[東京] 浅草（つくばＥＸＰ）駅 18m / かに、郷土料理（その他',
-            'price': '¥3000 ~ ¥9000',
-            'avg': 3,
-            'genomeAvg': 4,
-            'image': 'https://tblg.k-img.com/restaurant/images/Rvw/78630/150x150_square_78630548.jpg',
-          },
         ],
       }
     },
     methods: {
-      setRating: function(rating) {
-        this.rating = rating;
-      },
       search: function () {
-        axios.get(`https://api.zipaddress.net/?zipcode=${this.query}`)
+        axios.get(`https://genoguru2018.herokuapp.com/api/search?freeword=${this.query}`)
           .then(response => {
-            this.data = [response.data.data];
+            this.data = response.data.items;
+            console.log(response)
 
           })
           .catch(e => {
-            this.errors.push(e)
+            console.log(e);
           })
 
       },
